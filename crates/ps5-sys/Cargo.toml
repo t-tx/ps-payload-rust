@@ -1,0 +1,21 @@
+[package]
+name = "ps5-sys"
+version = "0.1.0"
+description = "L1: raw FFI bindings to the ps5-payload-sdk C API, generated with bindgen."
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+build = "build.rs"
+
+[lib]
+# `no_std` FFI surface — no host runtime, just extern declarations + C types.
+
+[features]
+default = ["fs", "net", "thread", "http"]
+fs = []      # POSIX/BSD file & filesystem bindings (module `fs`)
+net = []     # BSD socket bindings (module `net`)
+thread = []  # pthread/sem/sched + C11 thread bindings (module `thread`)
+http = []    # hand-written SceHttp2/SceSsl/SceNet FFI (module `sce`) + link libs
+
+[build-dependencies]
+bindgen = "0.71"

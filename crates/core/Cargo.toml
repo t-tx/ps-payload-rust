@@ -1,0 +1,15 @@
+# Package is `ps5-core` (not `core`, which would collide with the language's
+# built-in `core` crate). Directory is `crates/core` per the layer layout.
+[package]
+name = "ps5-core"
+version = "0.1.0"
+description = "L3: business-core use cases (no FFI) built on the L2 `ps5` wrappers."
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lib]
+name = "ps5_core"
+
+[dependencies]
+ps5 = { path = "../ps5", default-features = false, features = ["net", "thread"] }

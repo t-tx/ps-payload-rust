@@ -1,0 +1,6 @@
+[submodule "sdk"]
+	path = sdk
+	url = https://github.com/ps5-payload-dev/sdk
+[submodule "reference/ps5-ezremote-server"]
+	path = reference/ps5-ezremote-server
+	url = https://github.com/t-tx/ps5-ezremote-server

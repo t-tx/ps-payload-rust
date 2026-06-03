@@ -1,0 +1,8 @@
+# Rust build artifacts
+/target
+**/*.rs.bk
+Cargo.lock.orig
+
+# Generated FFI bindings live in OUT_DIR (under target/), never committed.
+# Built payloads
+*.elf

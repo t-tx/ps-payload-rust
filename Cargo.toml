@@ -1,0 +1,27 @@
+# Workspace for the PS5 payload, built in layers on top of the ps5-payload-sdk.
+#
+#   L1  crates/ps5-sys   raw FFI bindings generated from the SDK headers   <-- done
+#   L2  crates/ps5       safe, idiomatic Rust wrappers over L1             (todo)
+#   L3  crates/core      business-core use cases, target-agnostic          (todo)
+#   L4  crates/app       application feature, links into the .elf payload   (todo)
+#
+# See CLAUDE.md for the toolchain, build, and regeneration workflow.
+[workspace]
+resolver = "2"
+members = [
+    "crates/ps5-sys",
+    "crates/ps5",
+    "crates/core",
+]
+
+[workspace.package]
+edition = "2021"
+license = "GPL-3.0-or-later"
+repository = "https://github.com/ps5-payload-dev/sdk"
+
+[profile.release]
+panic = "abort"
+lto = true
+opt-level = "z"
+codegen-units = 1
+strip = false

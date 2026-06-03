@@ -1,0 +1,17 @@
+[package]
+name = "ps5"
+version = "0.1.0"
+description = "L2: safe, idiomatic Rust wrappers over the ps5-payload-sdk FFI (ps5-sys)."
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+ps5-sys = { path = "../ps5-sys", default-features = false }
+
+[features]
+default = ["fs", "net", "thread", "http"]
+fs = ["ps5-sys/fs"]
+net = ["ps5-sys/net"]
+thread = ["ps5-sys/thread"]
+http = ["ps5-sys/http"]
